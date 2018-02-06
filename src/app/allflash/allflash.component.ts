@@ -13,13 +13,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
 
   constructor( public allflash: VsanparametersService ) { }
 
-  /*
-  chartEF = null;
-  chartSlack = null;
-  chartRF = null;
-  values = [];
-  newPieChart = null;
- */
+
   usableSpace() {
             
     this.canvas.width = 500;

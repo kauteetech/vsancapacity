@@ -12,15 +12,9 @@ export class HybridComponent implements OnInit {
 
   constructor( public hybrid: VsanparametersService ) { }
 
-  /*
-  chartEF = null;
-  chartSlack = null;
-  chartRF = null;
-  values = [];
-  newPieChart = null;
-*/
-  usableSpace() {
 
+  usableSpace() {
+            
     this.canvas.width = 500;
     this.canvas.height = 500;
     
@@ -34,20 +28,21 @@ export class HybridComponent implements OnInit {
                                                     this.hybrid.value) / 
                                                     (this.hybrid.FTTvalue + 1))/ 
                                                     (this.hybrid.inTerabytes))*
-                                                    (1.0 - this.hybrid.slackSpace)).toFixed(2) ;
+                                                    (1.0 - this.hybrid.slackSpace)*
+                                                    this.hybrid.spaceSaveDC).toFixed(2) ;
 
-                  this.hybrid.chartEF = ((this.hybrid.effectiveSpace)*1000).toFixed(2);
+                  this.hybrid.chartEF = ((this.hybrid.effectiveSpace)*1000).toFixed(0);
 
 
                   this.hybrid.chartSlack = (( this.hybrid.totalNodes * 
                                                       this.hybrid.totalDiskGroups * 
                                                       this.hybrid.disksPerDiskGroup * 
                                                       this.hybrid.value)*
-                                                      (1.0 - this.hybrid.chartSlackspacevalue)).toFixed(2);
+                                                      (1.0 - this.hybrid.chartSlackspacevalue)).toFixed(0);
                   
                   this.hybrid.chartRF = ((((this.hybrid.effectiveSpace)*
                                     (this.hybrid.FTTvalue + 1))-
-                                    (this.hybrid.effectiveSpace))*1000).toFixed(2);  
+                                    (this.hybrid.effectiveSpace))*1000).toFixed(0);  
 
 
     this.hybrid.values = [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack ];
@@ -69,8 +64,8 @@ export class HybridComponent implements OnInit {
       },
       options: {
         cutoutPercentage: 50,
-        responsive: false,
-        display:true
+        responsive: true,
+        display:false
       }
       
     }); 
@@ -111,11 +106,9 @@ export class HybridComponent implements OnInit {
         options: {
           cutoutPercentage: 50,
           responsive: false,
-          display:true
+          display:false   
         }
         
       });
     }
-        
-   
-}
+  }
