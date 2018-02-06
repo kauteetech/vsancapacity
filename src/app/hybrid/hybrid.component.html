@@ -1,0 +1,46 @@
+<div class="container">
+
+  
+    <div class="row">
+        <div class="col col-md-3">
+            <div class="data" >  
+            <h3> Hybrid </h3>
+            <p> Number of Nodes </p> 
+            <span> <input type="number" min="2" max="64" [(ngModel)]="hybrid.totalNodes" class="form-control"> </span>
+
+            <label> Number of Disk Group </label>
+            <input type="number" min="1" max="5" [(ngModel)]="hybrid.totalDiskGroups" class="form-control">
+
+            <label> Disk Quantity per Disk Group </label>
+            <input type="number" min="1" max="7" [(ngModel)]="hybrid.disksPerDiskGroup" class="form-control">
+
+            <label> Capacity Disk Size </label>
+            <select class="input" id="Disks" [(ngModel)] = "hybrid.value" class="form-control">
+                  <option value="400">400GB</option>
+                  <option value="600">600GB</option>
+                  <option value="800">800GB</option>
+                  <option value="1200">1200GB</option>
+                  <option value="1800">1800GB</option>
+            </select>
+                 
+    
+              <label> Failure to Tolerate </label>
+              <input type="number" min="1" max="3"  [(ngModel)]="hybrid.FTTvalue" class="form-control">
+
+           
+              <button class="btn btn-large" (click)="usableSpace()"> Submit </button>
+        </div>     
+    </div>
+    <div class="col col-md-9">
+        
+        <p class="result" align="center"> The total usable space in {{ hybrid.effectiveSpace }} TB </p>
+      <!--  <app-vsanchart></app-vsanchart> -->
+        <div class="container" align="center">
+            <canvas align="center" id="myChart" width="500" height="500"></canvas>
+        </div>
+        
+    </div>
+</div>         
+</div>
+
+

@@ -1,0 +1,43 @@
+
+*{
+    border-radius: 0 !important;
+}
+
+
+
+a{
+    color: white;
+    text-decoration : none
+}
+
+li {
+
+    padding: 12px;
+    background: #DC7633;
+    color: white;
+    font-weight: bolder;
+    text-align:center;
+    margin:right;
+     
+}
+
+ul {
+    align-items: center;
+}
+
+a.button:hover{
+    background-color:#acce39;
+}
+
+a.button {
+    padding: 10px;
+    background: darkmagenta;
+    margin:0px 20px;
+    text-decoration: none;
+    color: white;
+    align-content: center;
+    text-align: end;
+    font-weight: bolder;
+    
+}
+

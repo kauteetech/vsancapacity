@@ -1,0 +1,22 @@
+*{
+    border-radius: 0 !important;
+}
+
+
+h3 {
+    margin-top: 10px;
+    font-weight: bolder;
+    padding: 15px;
+    
+}
+
+button {
+    margin: 10px;
+}
+
+.result {
+    font-size: 30px;
+    font-weight: bolder;
+    align-self: center;
+}
+
