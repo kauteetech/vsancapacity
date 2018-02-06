@@ -12,6 +12,7 @@ h3 {
 
 button {
     margin: 10px;
+    background-color: lightgrey;
 }
 
 .result {
@@ -20,3 +21,20 @@ button {
     align-self: center;
 }
 
+.legend{
+    margin-top: 150px;
+    margin-left: 25px;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.EF {
+    color: rgba(46, 204, 113,   1);
+}
+
+.RF {
+    color: rgba(231, 76, 60, 1);
+}
+.Slack {
+    color: rgba(142, 68, 173, 1);
+}
