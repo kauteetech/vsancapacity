@@ -25,7 +25,7 @@ ul {
     align-items: center;
 }
 
-a.button:hover{
+a.button:hover, a.hover{
     background-color:#acce39;
 }
 
@@ -39,5 +39,14 @@ a.button {
     text-align: end;
     font-weight: bolder;
     
+}
+
+a{
+    color: darkmagenta;
+    font-weight: bolder;
+    
+}
+.note {
+    font-size: 10px;
 }
 

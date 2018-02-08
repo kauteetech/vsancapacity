@@ -10,6 +10,7 @@ export class VsanparametersService {
   disksPerDiskGroup= null;
   effectiveSpace = null ;
   FTTvalue = null;
+  FTTvalueOne: number = 1;
   value = null;
   spaceSaveDC = null;
   inTerabytes = 1000;
@@ -23,16 +24,6 @@ export class VsanparametersService {
   values = [];
   newPieChart = null;
 
-  fttInput() {
-    if (this.totalNodes >= 2) {
-         return this.fttInputValue = [1];
-    }
-    else if ( this.totalNodes >= 5) {
-          return this.fttInputValue = [1,2];
-    }
-    else if ( this.totalNodes >= 7) {
-          return this.fttInputValue = [1,2,3];
-    }
-  }
+  
 
 }

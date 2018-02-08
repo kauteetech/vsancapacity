@@ -2,11 +2,10 @@
     border-radius: 0 !important;
 }
 
-
 h3 {
     margin-top: 10px;
     font-weight: bolder;
-    padding: 15px;
+    padding: 8px;
     
 }
 
@@ -15,10 +14,16 @@ button {
     background-color: lightgrey;
 }
 
+totalNodes {
+    color: brown;
+}
+
 .result {
+    margin-top: 10px;
     font-size: 30px;
     font-weight: bolder;
     align-self: center;
+    padding-left: 30px;
 }
 
 .legend{
@@ -30,11 +35,30 @@ button {
 
 .EF {
     color: rgba(46, 204, 113,   1);
+    font-size: 15px;
 }
 
 .RF {
     color: rgba(231, 76, 60, 1);
+    font-size: 15px;
 }
 .Slack {
     color: rgba(142, 68, 173, 1);
+    font-size: 15px;
+}
+
+.protection {
+    font-weight: bolder;
+    background: lightgray;
+    padding: 15px;
+    border: 5px;
+    margin: 5px;
+    height:210px;
+    
+}
+
+.subsection {
+    font-weight: bold;
+    width:240px;
+    
 }

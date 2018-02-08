@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+
+
 import { AppComponent } from './app.component';
 import { VsanefComponent } from './vsanef/vsanef.component';
 import { HybridComponent } from './hybrid/hybrid.component';
@@ -30,7 +32,8 @@ const  routeList: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routeList)
+    RouterModule.forRoot(routeList),
+    
 
   ],
   schemas: [],

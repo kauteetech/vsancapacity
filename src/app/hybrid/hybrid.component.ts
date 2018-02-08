@@ -22,14 +22,14 @@ export class HybridComponent implements OnInit {
       this.hybrid.newPieChart.destroy();
     }
         
-                  this.hybrid.effectiveSpace = ((((this.hybrid.totalNodes * 
+                  this.hybrid.effectiveSpace = ((this.hybrid.totalNodes * 
                                                     this.hybrid.totalDiskGroups * 
                                                     this.hybrid.disksPerDiskGroup * 
                                                     this.hybrid.value) / 
-                                                    (this.hybrid.FTTvalue + 1))/ 
-                                                    (this.hybrid.inTerabytes))*
-                                                    (1.0 - this.hybrid.slackSpace)*
-                                                    this.hybrid.spaceSaveDC).toFixed(2) ;
+                                                    (this.hybrid.FTTvalue)/ 
+                                                    (this.hybrid.inTerabytes)*
+                                                    (1.0 - this.hybrid.slackSpace))
+                                                    .toFixed(2);
 
                   this.hybrid.chartEF = ((this.hybrid.effectiveSpace)*1000).toFixed(0);
 
@@ -41,7 +41,7 @@ export class HybridComponent implements OnInit {
                                                       (1.0 - this.hybrid.chartSlackspacevalue)).toFixed(0);
                   
                   this.hybrid.chartRF = ((((this.hybrid.effectiveSpace)*
-                                    (this.hybrid.FTTvalue + 1))-
+                                    (this.hybrid.FTTvalue))-
                                     (this.hybrid.effectiveSpace))*1000).toFixed(0);  
 
 
@@ -50,7 +50,7 @@ export class HybridComponent implements OnInit {
     this.hybrid.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica Workload", "HA and Maintenance"],
+          labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
           datasets: [{
               label: 'vSAN Space',
               data: this.hybrid.values,
@@ -91,7 +91,7 @@ export class HybridComponent implements OnInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica Workload", "HA and Maintenance"],
+            labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
             datasets: [{
                 label: 'vSAN Space',
                 data: [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack ],
@@ -111,4 +111,6 @@ export class HybridComponent implements OnInit {
         
       });
     }
-  }
+        
+   
+}

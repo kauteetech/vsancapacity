@@ -14,6 +14,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
   constructor( public allflash: VsanparametersService ) { }
 
 
+
   usableSpace() {
             
     this.canvas.width = 500;
@@ -23,14 +24,14 @@ export class AllflashComponent implements OnInit, AfterViewInit {
       this.allflash.newPieChart.destroy();
     }
         
-                  this.allflash.effectiveSpace = ((((this.allflash.totalNodes * 
+                  this.allflash.effectiveSpace = ((this.allflash.totalNodes * 
                                                     this.allflash.totalDiskGroups * 
                                                     this.allflash.disksPerDiskGroup * 
                                                     this.allflash.value) / 
-                                                    (this.allflash.FTTvalue + 1))/ 
-                                                    (this.allflash.inTerabytes))*
+                                                    (this.allflash.FTTvalue)/ 
+                                                    (this.allflash.inTerabytes)*
                                                     (1.0 - this.allflash.slackSpace)*
-                                                    this.allflash.spaceSaveDC).toFixed(2) ;
+                                                    this.allflash.spaceSaveDC).toFixed(2);
 
                   this.allflash.chartEF = ((this.allflash.effectiveSpace)*1000).toFixed(0);
 
@@ -42,7 +43,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                       (1.0 - this.allflash.chartSlackspacevalue)).toFixed(0);
                   
                   this.allflash.chartRF = ((((this.allflash.effectiveSpace)*
-                                    (this.allflash.FTTvalue + 1))-
+                                    (this.allflash.FTTvalue))-
                                     (this.allflash.effectiveSpace))*1000).toFixed(0);  
 
 
@@ -51,7 +52,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
     this.allflash.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica Workload", "HA and Maintenance"],
+          labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
           datasets: [{
               label: 'vSAN Space',
               data: this.allflash.values,
@@ -92,7 +93,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica Workload", "HA and Maintenance"],
+            labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
             datasets: [{
                 label: 'vSAN Space',
                 data: [this.allflash.chartEF, this.allflash.chartRF, this.allflash.chartSlack ],
