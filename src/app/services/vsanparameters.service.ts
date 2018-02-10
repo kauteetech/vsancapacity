@@ -23,6 +23,8 @@ export class VsanparametersService {
   chartRF = null;
   values = [];
   newPieChart = null;
+  chartFsUtil = null;
+  rawCapacity = null;
 
   
 

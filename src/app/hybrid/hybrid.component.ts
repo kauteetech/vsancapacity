@@ -43,21 +43,32 @@ export class HybridComponent implements OnInit {
                   this.hybrid.chartRF = ((((this.hybrid.effectiveSpace)*
                                     (this.hybrid.FTTvalue))-
                                     (this.hybrid.effectiveSpace))*1000).toFixed(0);  
+                  
+                  this.hybrid.chartFsUtil = ((this.hybrid.totalNodes * 
+                                                this.hybrid.totalDiskGroups * 
+                                                this.hybrid.disksPerDiskGroup * 
+                                                this.hybrid.value)*.01).toFixed(0);
+                                                
+                  this.hybrid.rawCapacity = (((this.hybrid.totalNodes * 
+                                                  this.hybrid.totalDiskGroups * 
+                                                  this.hybrid.disksPerDiskGroup * 
+                                                  this.hybrid.value))/1000).toFixed(2);
+                    
 
-
-    this.hybrid.values = [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack ];
+    this.hybrid.values = [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack, this.hybrid.chartFsUtil ];
     
     this.hybrid.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
+          labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
           datasets: [{
               label: 'vSAN Space',
               data: this.hybrid.values,
               backgroundColor: [
                 'rgba(46, 204, 113,   1)',
                 'rgba(231, 76, 60, 1)',
-                'rgba(142, 68, 173, 1)'
+                'rgba(142, 68, 173, 1)',
+                'rgba(243, 156, 18, 1)'
               ],
               borderWidth: 1
           }]
@@ -91,14 +102,15 @@ export class HybridComponent implements OnInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica or Parity", "HA and Maintenance"],
+            labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
             datasets: [{
                 label: 'vSAN Space',
-                data: [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack ],
+                data: [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack, this.hybrid.chartFsUtil ],
                 backgroundColor: [
                     'rgba(46, 204, 113,   1)',
                     'rgba(231, 76, 60, 1)',
-                    'rgba(142, 68, 173, 1)'
+                    'rgba(142, 68, 173, 1)',
+                    'rgba(243, 156, 18, 1)'
                 ],
                 borderWidth: 1
             }]

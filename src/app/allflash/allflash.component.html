@@ -2,7 +2,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col col-md-3" class="serverdata">
+        <div class="col col-md-3 col-sm-3 col-xs-3" class="serverdata">
                 <div>
                     <h3> All Flash </h3>
                 </div>    
@@ -101,23 +101,20 @@
                 <div>
                     <label class="subsection"> Capacity Tier Disk Size </label>
                         <select class="input" id="Disks" [(ngModel)] = "allflash.value" class="form-control" required>
-                                <option value="400">400GB SSD</option>
-                                <option value="200">200GB SSD</option>
-                                <option value="240">240GB SSD</option>
-                                <option value="500">500GB SSD</option>
-                                <option value="600">600GB SSD</option>
-                                <option value="800" >800GB SSD</option>
-                                <option value="1600">1.6TB SSD</option>
-                                <option value="1800">1.8TB SSD</option>
-                                <option value="1200">1.2TB SSD</option>
-                                <option value="1800">1.8TB SSD</option>
-                                <option value="1920">1.92TB SSD</option>
-                                <option value="1000">1TB SSD</option>
-                                <option value="3200">3.2TB SSD</option>
-                                <option value="3840">3.84TB SSD</option>
-                                <option value="3840">3.84TB SSD</option>
-                                <option value="480">480GB SSD</option>
-                                <option value="240>">240GB SDD</option>
+                                <option value="372.53">400GB SSD (373 GiB)</option>
+                                <option value="186.27">200GB SSD (186 GiB)</option>
+                                <option value="223.52">240GB SSD (224 GiB)</option>
+                                <option value="465.66">500GB SSD (466 GiB)</option>
+                                <option value="558.79">600GB SSD (559 GiB)</option>
+                                <option value="745.06" >800GB SSD (745 GiB)</option>
+                                <option value="1490.17">1.6TB SSD (1.5 TiB)</option>
+                                <option value="1676.38">1.8TB SSD (1.7 TiB)</option>
+                                <option value="1117.59">1.2TB SSD (1.1 TiB)</option>
+                                <option value="1788.14">1.92TB SSD (1.8 TiB)</option>
+                                <option value="931.32">1TB SSD (931 GiB)</option>
+                                <option value="2980.23">3.2TB SSD (3 TiB)</option>
+                                <option value="3576.28">3.84TB SSD (3.6 TiB)</option>
+                                <option value="447.04">480GB SSD (447 GiB)</option>
                         </select>
                 </div>  
              
@@ -175,22 +172,23 @@
                  
     </div>
  
-            <div class="col col-md-6">
+            <div class="col col-md-6 col-sm-3 col-xs-3">
 
             <div class="result">
-                <p align="center"> The effective capacity is {{ allflash.effectiveSpace }} TB </p>
+                <p align="center"> The effective capacity is {{ allflash.effectiveSpace }} TiB of {{ this.allflash.rawCapacity }} TiB Raw </p>
             
                 <div class="result">
-                    <canvas align="center" id="myChart" width="500" height="500"></canvas>
+                    <canvas align="center" id="myChart" width="450" height="450"></canvas>
                 </div>
             </div>    
             </div>
         
-            <div class="col col-md-3">
+            <div class="col col-md-3 col-sm-3 col-xs-3">
                 <div class="legend">
-                    <p class="EF"> Workload space     {{ allflash.chartEF/1000 }} TB </p>
-                    <p class="RF"> Replica or Parity {{ allflash.chartRF/1000 }} TB </p>
-                    <p class="Slack"> HA and Maintenance   {{ allflash.chartSlack/1000 }} TB  </p>
+                    <p class="EF"> Workload space {{ allflash.chartEF/1000 | number : '1.2-2' }} TiB </p>
+                    <p class="RF"> Replica or Parity {{ allflash.chartRF/1000  | number : '1.2-2' }} TiB </p>
+                    <p class="Slack"> HA & Maintenance {{ allflash.chartSlack/1000  | number : '1.2-2' }} TiB  </p>
+                    <p class="Filesystem"> Filesystem {{ allflash.chartFsUtil/1000 | number : '1.2-2' }} TiB  </p>
                 </div>  
             </div>
                 

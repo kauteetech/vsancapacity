@@ -20,17 +20,20 @@ totalNodes {
 
 .result {
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bolder;
     align-self: center;
     padding-left: 30px;
 }
 
 .legend{
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 25px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bolder;
+    background-color: #E5E7E9 ;
+    padding: 20px;
+    width: 260px;
 }
 
 .EF {
@@ -47,18 +50,43 @@ totalNodes {
     font-size: 15px;
 }
 
+.Filesystem {
+    color:rgba(243, 156, 18, 1);
+    font-size: 15px;
+}
+
 .protection {
     font-weight: bolder;
-    background: lightgray;
+    background: #E5E7E9 ;
     padding: 15px;
     border: 5px;
-    margin: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
     height:210px;
     
 }
 
 .subsection {
     font-weight: bold;
-    width:240px;
+    width:250px;
+    margin-left: 10px;
     
 }
+
+
+select {
+    margin-left: 10px;
+    border: 10px solid #111;
+    background: transparent;
+    width: 250px;
+    padding: 5px 10px 5px 5px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+     background: url(/assets/downArrow.png) 96% / 15% no-repeat #eee;
+  }
+  
+
+
+

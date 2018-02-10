@@ -101,23 +101,23 @@
                     <div>
                         <label class="subsection"> Capacity Tier Disk Size </label>
                         <select class="input" id="Disks" [(ngModel)] = "hybrid.value" class="form-control" required>
-                                <option value="1200">1.2TB HDD</option>
-                                <option value="1800">1.8TB HDD</option>
-                                <option value="1000" >1TB HDD</option>
-                                <option value="10000">10TB HDD</option>
-                                <option value="12000">12TB HDD</option>
-                                <option value="146">146GB HDD</option>
-                                <option value="2400">2.4TB HDD</option>
-                                <option value="2000">2TB HDD</option>
-                                <option value="300">300GB HDD</option>
-                                <option value="3000">3TB HDD</option>
-                                <option value="4000">4TB HDD</option>
-                                <option value="450">450GB HDD</option>
-                                <option value="500">500GB HDD</option>
-                                <option value="600">600GB HDD</option>
-                                <option value="6000">6TB HDD</option>
-                                <option value="8000">8TB HDD</option>
-                                <option value="900">900GB HDD</option>
+                            <option value="1117.59">1.2TB HDD (1.1 TiB)</option>
+                            <option value="1676.38">1.8TB HDD (1.7 TiB)</option>
+                            <option value="931.32">1TB SSD (931 GiB)</option>
+                            <option value="9313.20">10TB HDD (9.3 TiB)</option>
+                            <option value="11175.87">12TB HDD (11.1 TiB)</option>
+                            <option value="135.97">146GB HDD (136 GiB)</option>
+                            <option value="2235.17">2.4TB HDD (2.2 TiB)</option>
+                            <option value="1862.64">2TB HDD(1.9 TiB)</option>
+                            <option value="279.40">300GB HDD (279 GiB)</option>
+                            <option value="2793.97">3TB HDD (2.8 TiB)</option>
+                            <option value="3725.29">4TB HDD (3.7 TiB)</option>
+                            <option value="419.10">450GB HDD (419 GiB)</option>
+                            <option value="465.66">500GB HDD (466 GiB)</option>
+                            <option value="558.79">600GB HDD (559 GiB)</option>
+                            <option value="5587.94">6TB HDD (5.6 TiB)</option>
+                            <option value="7450.58">8TB HDD (7.4 TiB)</option>
+                            <option value="838.19">900GB HDD (838 GiB)</option>
                         </select>     
                     </div>  
                  
@@ -157,19 +157,20 @@
                 <div class="col col-md-6">
     
                 <div class="result">
-                    <p align="center"> The effective capacity is {{ hybrid.effectiveSpace }} TB </p>
+                    <p align="center"> The effective capacity is {{ hybrid.effectiveSpace }} TiB of {{ hybrid.rawCapacity }} TiB Raw </p>
                 
                     <div class="result">
-                        <canvas align="center" id="myChart" width="500" height="500"></canvas>
+                        <canvas align="center" id="myChart" width="450" height="450"></canvas>
                     </div>
                 </div>    
                 </div>
             
                 <div class="col col-md-3">
                     <div class="legend">
-                        <p class="EF"> Workload space     {{ hybrid.chartEF/1000 }} TB </p>
-                        <p class="RF"> Replica or Parity {{ hybrid.chartRF/1000 }} TB </p>
-                        <p class="Slack"> HA and Maintenance   {{ hybrid.chartSlack/1000 }} TB  </p>
+                        <p class="EF"> Workload space {{ hybrid.chartEF/1000  | number : '1.2-2' }} TiB </p>
+                        <p class="RF"> Replica or Parity {{ hybrid.chartRF/1000   | number : '1.2-2' }} TiB </p>
+                        <p class="Slack"> HA & Maintenance {{ hybrid.chartSlack/1000  | number : '1.2-2' }} TiB  </p>
+                        <p class="Filesystem"> Filesystem {{ hybrid.chartFsUtil/1000   | number : '1.2-2' }} TiB  </p>
                     </div>  
                 </div>
                     
