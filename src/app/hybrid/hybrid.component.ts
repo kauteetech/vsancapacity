@@ -60,7 +60,7 @@ export class HybridComponent implements OnInit {
     this.hybrid.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
+          labels: ["Workload space", "Replica", "HA and Maintenance", "Filesystem"],
           datasets: [{
               label: 'vSAN Space',
               data: this.hybrid.values,
@@ -102,7 +102,7 @@ export class HybridComponent implements OnInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
+            labels: ["Workload space", "Replica", "HA and Maintenance", "Filesystem"],
             datasets: [{
                 label: 'vSAN Space',
                 data: [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack, this.hybrid.chartFsUtil ],
