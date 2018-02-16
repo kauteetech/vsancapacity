@@ -21,15 +21,19 @@ export class HybridComponent implements OnInit {
     if (this.hybrid.newPieChart) {
       this.hybrid.newPieChart.destroy();
     }
-        
+
                   this.hybrid.effectiveSpace = ((this.hybrid.totalNodes * 
                                                     this.hybrid.totalDiskGroups * 
                                                     this.hybrid.disksPerDiskGroup * 
                                                     this.hybrid.value) / 
                                                     (this.hybrid.FTTvalue)/ 
                                                     (this.hybrid.inTerabytes)*
-                                                    (1.0 - this.hybrid.slackSpace))
-                                                    .toFixed(2);
+                                                    (1-((this.hybrid.slackSpace)/100))).toFixed(2);
+                 
+                  if (isNaN(this.hybrid.effectiveSpace)) {
+                    this.hybrid.effectiveSpace = 0;
+                  } 
+
 
                   this.hybrid.chartEF = ((this.hybrid.effectiveSpace)*1000).toFixed(0);
 
@@ -60,7 +64,7 @@ export class HybridComponent implements OnInit {
     this.hybrid.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica", "HA and Maintenance", "Filesystem"],
+          labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
           datasets: [{
               label: 'vSAN Space',
               data: this.hybrid.values,
@@ -76,7 +80,7 @@ export class HybridComponent implements OnInit {
       options: {
         cutoutPercentage: 50,
         responsive: true,
-        display:false
+        display:true
       }
       
     }); 
@@ -102,7 +106,7 @@ export class HybridComponent implements OnInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica", "HA and Maintenance", "Filesystem"],
+            labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
             datasets: [{
                 label: 'vSAN Space',
                 data: [this.hybrid.chartEF, this.hybrid.chartRF, this.hybrid.chartSlack, this.hybrid.chartFsUtil ],
@@ -117,8 +121,8 @@ export class HybridComponent implements OnInit {
         },
         options: {
           cutoutPercentage: 50,
-          responsive: false,
-          display:false   
+          responsive: true,
+          display:true 
         }
         
       });

@@ -12,10 +12,10 @@ export class VsanparametersService {
   FTTvalue = null;
   FTTvalueOne: number = 1;
   value = null;
-  spaceSaveDC = null;
+  spaceSaveDC = 1;
   inTerabytes = 1000;
-  slackSpace = 0.25 ;
-  chartSlackspacevalue = 0.75;
+  slackSpace = null ;
+  chartSlackspacevalue = null;
   rawTotal = null;
   fttInputValue = [];
   chartEF = null;

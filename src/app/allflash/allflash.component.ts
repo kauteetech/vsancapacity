@@ -1,7 +1,14 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { VsanparametersService } from '../services/vsanparameters.service';
 import { Chart } from 'chart.js';
 // import { COMPOSITION_BUFFER_MODE } from '@angular/forms/src/directives/default_value_accessor';
+
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import 'hammerjs/hammer';
 
 
 @Component({
@@ -30,8 +37,12 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                     this.allflash.value) / 
                                                     (this.allflash.FTTvalue)/ 
                                                     (this.allflash.inTerabytes)*
-                                                    (1.0 - this.allflash.slackSpace)*
+                                                    (1-((this.allflash.slackSpace)/100))*
                                                     this.allflash.spaceSaveDC).toFixed(2);
+
+                  if (isNaN(this.allflash.effectiveSpace)) {
+                    this.allflash.effectiveSpace = 0;
+                  }  
 
                   this.allflash.chartEF = ((this.allflash.effectiveSpace)*1000).toFixed(0);
 
@@ -40,7 +51,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                       this.allflash.totalDiskGroups * 
                                                       this.allflash.disksPerDiskGroup * 
                                                       this.allflash.value)*
-                                                      (1.0 - this.allflash.chartSlackspacevalue)).toFixed(0);
+                                                      ((this.allflash.slackSpace)/100)).toFixed(0);
                   
                   this.allflash.chartRF = ((((this.allflash.effectiveSpace)*
                                     (this.allflash.FTTvalue))-
@@ -67,7 +78,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
               label: 'vSAN Space',
               data: this.allflash.values,
               backgroundColor: [
-                'rgba(46, 204, 113,   1)',
+                'rgba(46, 204, 113, 1)',
                 'rgba(231, 76, 60, 1)',
                 'rgba(142, 68, 173, 1)',
                 'rgba(243, 156, 18, 1)'
@@ -78,7 +89,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
       options: {
         cutoutPercentage: 50,
         responsive: true,
-        display:false
+        display:true
       }
     }); 
   }

@@ -8,12 +8,13 @@ h3 {
     padding: 8px;
     text-align: right;
     margin-right: 20px;
-    
+
 }
 
 button {
     margin: 10px;
     background-color: lightgrey;
+    font-weight: bold;
 }
 
 totalNodes {
@@ -26,17 +27,19 @@ totalNodes {
     font-weight: bolder;
     align-self: center;
     padding-left: 30px;
+    
 }
 
 .legend{
     margin-top: 100px;
-    margin-left: 25px;
-    font-size: 10px;
-    font-weight: bolder;
+    font-weight: bold;
     background-color: #E5E7E9 ;
     padding: 20px;
-    width: 260px;
+    width: 275px;
+    font-size: 15px;
+    align-self:auto;
 }
+
 
 .EF {
     color: rgba(46, 204, 113,   1);
@@ -72,8 +75,31 @@ totalNodes {
     font-weight: bold;
     width:250px;
     margin-left: 10px;
+}
+
+.serverdata {
+    height: 500px;
+    overflow: auto;
+    padding: 3px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/*
+.chartdisplay {
+    overflow: hidden;
     
 }
+
+.legenddisplay {
+    overflow: hidden;
+    
+}
+*/
+
 
 
 select {
@@ -89,6 +115,8 @@ select {
      background: url(/assets/downArrow.png) 96% / 15% no-repeat #eee;
   }
   
-
+  .mat-slider-horizontal {
+    width: 250px;
+  }
 
 
