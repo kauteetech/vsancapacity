@@ -15,8 +15,8 @@ export class HybridComponent implements OnInit {
 
   usableSpace() {
     
-this.canvas.width = 500;
-this.canvas.height = 500;
+this.canvas.width = 350;
+this.canvas.height = 350;
 
 if (this.hybrid.newPieChart) {
 this.hybrid.newPieChart.destroy();
@@ -86,6 +86,7 @@ display:true
 
 
 ngOnInit() {    
+  this.hybrid.FTTvalue = 2;
 
 }
 

@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
+import {MatButtonModule, MatRadioModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs/hammer';
@@ -18,19 +18,19 @@ import 'hammerjs/hammer';
 })
 export class AllflashComponent implements OnInit, AfterViewInit {
 
-  constructor( public allflash: VsanparametersService ) { }
-
-
+  constructor( public allflash: VsanparametersService ) { 
+    
+  }
 
   usableSpace() {
-            
-    this.canvas.width = 500;
-    this.canvas.height = 500;
+    
+    this.canvas.width = 350;
+    this.canvas.height = 350;
     
     if (this.allflash.newPieChart) {
       this.allflash.newPieChart.destroy();
     }
-        
+
                   this.allflash.effectiveSpace = ((this.allflash.totalNodes * 
                                                     this.allflash.totalDiskGroups * 
                                                     this.allflash.disksPerDiskGroup * 
@@ -43,6 +43,11 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                   if (isNaN(this.allflash.effectiveSpace)) {
                     this.allflash.effectiveSpace = 0;
                   }  
+
+                  if (this.allflash.totalNodes <= 3) {
+                    this.allflash.FTTvalue = 2;
+                  }
+
 
                   this.allflash.chartEF = ((this.allflash.effectiveSpace)*1000).toFixed(0);
 
@@ -93,10 +98,12 @@ export class AllflashComponent implements OnInit, AfterViewInit {
       }
     }); 
   }
-
+ 
+ 
 
   ngOnInit() {    
-
+    this.allflash.FTTvalue = 2;
+   
   }
   
   

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
+import {MatButtonModule, MatRadioModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs/hammer';
@@ -43,6 +43,7 @@ const  routeList: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatRadioModule,
     RouterModule.forRoot(routeList),
     
 

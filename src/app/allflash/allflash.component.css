@@ -2,8 +2,8 @@
     border-radius: 0 !important;
 }
 
-h3 {
-    margin-top: 10px;
+h4 {
+    margin-top: 5px;
     font-weight: bolder;
     padding: 8px;
 
@@ -29,34 +29,38 @@ totalNodes {
 }
 
 .legend{
-    margin-top: 100px;
+    margin-top: 50px;
     font-weight: bold;
     background-color: #E5E7E9 ;
-    padding: 20px;
-    width: 275px;
+    padding: 10px;
+    width: 250px;
     font-size: 15px;
-    align-self:auto;
     margin-left: 10px;
+
 }
 
 
 .EF {
     color: rgba(46, 204, 113,   1);
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .RF {
     color: rgba(231, 76, 60, 1);
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .Slack {
     color: rgba(142, 68, 173, 1);
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .Filesystem {
     color:rgba(243, 156, 18, 1);
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .protection {
@@ -75,30 +79,6 @@ totalNodes {
     width:250px;
     margin-left: 10px;
 }
-
-.serverdata {
-    height: 500px;
-    overflow: auto;
-    padding: 3px;
-}
-
-::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-}
-
-/*
-.chartdisplay {
-    overflow: hidden;
-    
-}
-
-.legenddisplay {
-    overflow: hidden;
-    
-}
-*/
-
 
 
 select {

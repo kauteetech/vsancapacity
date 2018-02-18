@@ -2,15 +2,15 @@
 <div class="container">
     
         <div class="row">
-            <div class="col col-md-3 col-sm-3 col-xs-3" class="serverdata">
+            <div class="col col-md-3" class="serverdata">
                     <div>
-                        <h3> Hybrid </h3>
+                        <h4> Hybrid </h4>
                     </div>    
                     <div>
                         <label class="subsection">  Number of Nodes     : {{ hybrid.totalNodes }} </label>
     
                         <div class="subsection">
-                            <p> <mat-slider thumb-label='true' tick-interval=1 min="3" max="64" step="1" value="3" [(ngModel)]="hybrid.totalNodes"></mat-slider> </p>
+                            <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="2" max="64" step="1" value="3" [(ngModel)]="hybrid.totalNodes"></mat-slider> </p>
                         </div>
     
                              
@@ -19,82 +19,75 @@
                     <div>
                         <label class="subsection"> Number of Disk Groups    : {{ hybrid.totalDiskGroups }} </label>
                         <div class="subsection">
-                            <p> <mat-slider thumb-label='true' tick-interval=1 min="0" max="5" step="1" value="0" [(ngModel)]="hybrid.totalDiskGroups"></mat-slider> </p>
+                            <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="0" max="5" step="1" value="0" [(ngModel)]="hybrid.totalDiskGroups"></mat-slider> </p>
                         </div>
                     </div>
     
                     <div>
                         <label class="subsection"> Disks per Disk Group    : {{ hybrid.disksPerDiskGroup }} </label>
                         <div class="subsection">
-                            <p> <mat-slider thumb-label='true' tick-interval=1 min="0" max="7" step="1" value="0" [(ngModel)]="hybrid.disksPerDiskGroup"></mat-slider> </p>
+                            <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="0" max="7" step="1" value="0" [(ngModel)]="hybrid.disksPerDiskGroup"></mat-slider> </p>
                         </div>
                     </div>          
         
                     <div>
                         <label class="subsection"> Slack Space in %    : {{ hybrid.slackSpace }} </label>
                         <div class="subsection">
-                            <p> <mat-slider thumb-label='true' tick-interval=1 min="0" max="30" step="1" value="0" [(ngModel)]="hybrid.slackSpace"></mat-slider> </p>
+                            <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="0" max="30" step="1" value="0" [(ngModel)]="hybrid.slackSpace"></mat-slider> </p>
                         </div> 
                     </div>
     
   
                     <div>
                         <label class="subsection"> Capacity Tier Disk Size </label>
-                            <select class="input" id="Disks" [(ngModel)] = "hybrid.value" class="form-control" required>
+                            <select (change)="usableSpace()" class="input" id="Disks" [(ngModel)] = "hybrid.value" class="form-control" required>
+                                <option value="135.97">146GB HDD (136 GiB)</option>
+                                <option value="279.40">300GB HDD (279 GiB)</option>
+                                <option value="419.10">450GB HDD (419 GiB)</option>
+                                <option value="465.66" select>500GB HDD (466 GiB)</option>
+                                <option value="558.79">600GB HDD (559 GiB)</option>
+                                <option value="838.19">900GB HDD (838 GiB)</option>
+                                <option value="931.32">1TB SSD (931 GiB)</option>
                                 <option value="1117.59">1.2TB HDD (1.1 TiB)</option>
                                 <option value="1676.38">1.8TB HDD (1.7 TiB)</option>
-                                <option value="931.32">1TB SSD (931 GiB)</option>
-                                <option value="9313.20">10TB HDD (9.3 TiB)</option>
-                                <option value="11175.87">12TB HDD (11.1 TiB)</option>
-                                <option value="135.97">146GB HDD (136 GiB)</option>
-                                <option value="2235.17">2.4TB HDD (2.2 TiB)</option>
                                 <option value="1862.64">2TB HDD(1.9 TiB)</option>
-                                <option value="279.40">300GB HDD (279 GiB)</option>
+                                <option value="2235.17">2.4TB HDD (2.2 TiB)</option>
                                 <option value="2793.97">3TB HDD (2.8 TiB)</option>
                                 <option value="3725.29">4TB HDD (3.7 TiB)</option>
-                                <option value="419.10">450GB HDD (419 GiB)</option>
-                                <option value="465.66">500GB HDD (466 GiB)</option>
-                                <option value="558.79">600GB HDD (559 GiB)</option>
                                 <option value="5587.94">6TB HDD (5.6 TiB)</option>
                                 <option value="7450.58">8TB HDD (7.4 TiB)</option>
-                                <option value="838.19">900GB HDD (838 GiB)</option>
+                                <option value="9313.20">10TB HDD (9.3 TiB)</option>
+                                <option value="11175.87">12TB HDD (11.1 TiB)</option>
                             </select>
                     </div>  
                  
-                    
-                    <div>    
-                        <div class="subsection" class="protection">
-                            <label> Failure Protection </label>
-                                <form class="FTM-form">
-                                    <fieldset id="FTM-Mirror">
-                                        <label *ngIf ="hybrid.totalNodes >= 3">
-                                        <input type="radio" value="2" name="FTM-Mirror" class="input" [(ngModel)]="hybrid.FTTvalue"> 
-                                            FTT1-Two data copies
-                                        </label> <br>
-    
-                                          <label *ngIf ="hybrid.totalNodes >= 5">
-                                        <input type="radio" value="3" name="FTM-Mirror" class="input" [(ngModel)]="hybrid.FTTvalue"> 
-                                            FTT2-Three data copies
-                                        </label> <br>
+            <div>    
+                    <div class="subsection" class="protection">
+                        <label> Failure Protection </label>
+                            <form class="FTM-form">
 
-                                        <label *ngIf ="hybrid.totalNodes >= 7">
-                                        <input type="radio" value="4" name="FTM-Mirror" class="input" [(ngModel)]="hybrid.FTTvalue"> 
-                                            FTT3-Four data copies
-                                        </label> <br>
-    
-     
-                                    </fieldset>
-                                </form>
-                        </div>
+                                    <label *ngIf ="hybrid.totalNodes >= 2">
+                                    <input (change)="usableSpace()" type="radio" [value]="2" name="hybrid.FTTvalue" class="input" [(ngModel)]="hybrid.FTTvalue" checked> 
+                                        FTT1-Two data copies 
+                                    </label> <br>
+
+                                    <label *ngIf ="hybrid.totalNodes >= 5">
+                                    <input  (change)="usableSpace()" type="radio" value="3" name="hybrid.FTTvalue" class="input" [(ngModel)]="hybrid.FTTvalue"> 
+                                        FTT2-Three data copies
+                                    </label> <br>
+
+                                    <label *ngIf ="hybrid.totalNodes >= 7">
+                                    <input (change)="usableSpace()" type="radio" value="4" name="FTT3" class="input" [(ngModel)]="hybrid.FTTvalue"> 
+                                        FTT3-Four data copies
+                                    </label> <br>
+
+                            </form>
                     </div>
-    
-                    <div>
-                        <button class="btn btn-large" (click)="usableSpace()"> Submit </button>
-                    </div> 
-                     
+                </div>
+
         </div>
      
-                <div class="col col-md-6 col-sm-3 col-xs-3">
+                <div class="col col-md-6">
     
                 <div class="result">
          
@@ -105,16 +98,19 @@
                 </div>
     
                    
-                <div class="col col-md-3 col-sm-3 col-xs-3">
+                <div class="col col-md-3">
                     <div class="legend">
-                        <p> The useable capacity is {{ hybrid.effectiveSpace  | number : '1.2-2' }} TiB </p>
-                        <p> The raw capacity is {{ hybrid.rawCapacity | number : '1.2-2' }} TiB </p>
-                        <p> The raw capacity is {{ hybrid.rawCapacity*1.075 | number : '1.2-2' }} TB </p>
-                        <p class="EF"> Workload space {{ hybrid.chartEF/1000 | number : '1.2-2' }} TiB </p>
-                        <p class="RF"> Replica or Parity {{ hybrid.chartRF/1000  | number : '1.2-2' }} TiB </p>
-                        <p class="Filesystem"> Filesystem {{ hybrid.chartFsUtil/1000 | number : '1.2-2' }} TiB  </p>
-                        <p class="Slack"> HA & Maintenance {{ hybrid.chartSlack/1000  | number : '1.2-2' }} TiB </p>
-    
+                            <p> Useable capacity is {{ hybrid.effectiveSpace  | number : '1.2-2' }} TiB <br>
+                                ({{ hybrid.effectiveSpace*1.075 | number : '1.2-2' }} TB) </p>
+                            <p> Raw capacity is {{ hybrid.rawCapacity | number : '1.2-2' }} TiB <br>
+                                ({{ hybrid.rawCapacity*1.075 | number : '1.2-2' }} TB) </p>
+                            <br>
+                            <br>
+                            
+                            <p class="EF"> Workload space {{ hybrid.chartEF/1000 | number : '1.2-2' }} TiB </p>
+                            <p class="RF"> Replica or Parity {{ hybrid.chartRF/1000  | number : '1.2-2' }} TiB </p>
+                            <p class="Filesystem"> Filesystem {{ hybrid.chartFsUtil/1000 | number : '1.2-2' }} TiB  </p>
+                            <p class="Slack"> HA & Maintenance {{ hybrid.chartSlack/1000  | number : '1.2-2' }} TiB </p>
                     </div>  
     
     

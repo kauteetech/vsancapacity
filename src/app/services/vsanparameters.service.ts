@@ -5,16 +5,16 @@ export class VsanparametersService {
 
  constructor() { }
 
-  totalNodes = null;
-  totalDiskGroups = null;
-  disksPerDiskGroup= null;
+  totalNodes = 2;
+  totalDiskGroups = 1;
+  disksPerDiskGroup= 1;
   effectiveSpace = null ;
   FTTvalue = null;
   FTTvalueOne: number = 1;
-  value = null;
+  value = 465.66;
   spaceSaveDC = 1;
   inTerabytes = 1000;
-  slackSpace = null ;
+  slackSpace = 30 ;
   chartSlackspacevalue = null;
   rawTotal = null;
   fttInputValue = [];
