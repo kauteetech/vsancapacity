@@ -58,6 +58,12 @@ totalNodes {
     font-weight: bold;
 }
 
+.checksum {
+    color:rgba(46, 134, 193, 1);
+    font-size: 13px;
+    font-weight: bold;
+}
+
 .Filesystem {
     color:rgba(243, 156, 18, 1);
     font-size: 13px;

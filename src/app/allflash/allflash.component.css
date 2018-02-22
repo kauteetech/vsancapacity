@@ -51,6 +51,13 @@ totalNodes {
     font-size: 13px;
     font-weight: bold;
 }
+
+.checksum {
+    color:rgba(46, 134, 193, 1);
+    font-size: 13px;
+    font-weight: bold;
+}
+
 .Slack {
     color: rgba(142, 68, 173, 1);
     font-size: 13px;

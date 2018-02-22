@@ -36,6 +36,13 @@
                             <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="1" max="30" step="1" value="30" [(ngModel)]="hybrid.slackSpace"></mat-slider> </p>
                         </div> 
                     </div>
+
+                    <div>
+                        <label class="subsection"> Checksum in %    : {{ hybrid.checksum }} </label>
+                        <div class="subsection">
+                            <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=.5 min="1" max="7" step=".5" value="5" [(ngModel)]="hybrid.checksum"></mat-slider> </p>
+                        </div> 
+                    </div>
     
   
                     <div>
@@ -108,6 +115,7 @@
                             <br>
                             
                             <p class="EF"> Workload space {{ hybrid.chartEF/1000 | number : '1.2-2' }} TiB </p>
+                            <p class="checksum"> Checksum {{ hybrid.chartchecksum/1000 | number : '1.2-2' }} TiB  </p>
                             <p class="RF"> Replica or Parity {{ hybrid.chartRF/1000  | number : '1.2-2' }} TiB </p>
                             <p class="Filesystem"> Filesystem {{ hybrid.chartFsUtil/1000 | number : '1.2-2' }} TiB  </p>
                             <p class="Slack"> HA & Maintenance {{ hybrid.chartSlack/1000  | number : '1.2-2' }} TiB </p>

@@ -37,7 +37,7 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                     this.allflash.value) / 
                                                     (this.allflash.FTTvalue)/ 
                                                     (this.allflash.inTerabytes)*
-                                                    (1-((this.allflash.slackSpace)/100))*
+                                                    (1-((this.allflash.slackSpace + this.allflash.checksum)/100))*
                                                     this.allflash.spaceSaveDC).toFixed(2);
 
                   if (isNaN(this.allflash.effectiveSpace)) {
@@ -57,7 +57,13 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                       this.allflash.disksPerDiskGroup * 
                                                       this.allflash.value)*
                                                       ((this.allflash.slackSpace)/100)).toFixed(0);
-                  
+
+                  this.allflash.chartchecksum = ((this.allflash.totalNodes * 
+                                                  this.allflash.totalDiskGroups * 
+                                                  this.allflash.disksPerDiskGroup * 
+                                                  this.allflash.value)*
+                                                  ((this.allflash.checksum)/100)).toFixed(0);
+                                                
                   this.allflash.chartRF = ((((this.allflash.effectiveSpace)*
                                     (this.allflash.FTTvalue))-
                                     (this.allflash.effectiveSpace))*1000).toFixed(0); 
@@ -73,17 +79,18 @@ export class AllflashComponent implements OnInit, AfterViewInit {
                                                 this.allflash.value))/1000).toFixed(2);
                   
 
-    this.allflash.values = [this.allflash.chartEF, this.allflash.chartRF, this.allflash.chartSlack, this.allflash.chartFsUtil ];
+    this.allflash.values = [this.allflash.chartEF, this.allflash.chartchecksum,  this.allflash.chartRF, this.allflash.chartSlack, this.allflash.chartFsUtil ];
     
     this.allflash.newPieChart = new Chart(this.ctx, {
       type: 'pie',
       data: {
-          labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
+          labels: ["Workload space", "Checksum", "Replica or Parity", "HA and Maintenance", "Filesystem"],
           datasets: [{
               label: 'vSAN Space',
               data: this.allflash.values,
               backgroundColor: [
                 'rgba(46, 204, 113, 1)',
+                'rgba(46, 134, 193, 1)',
                 'rgba(231, 76, 60, 1)',
                 'rgba(142, 68, 173, 1)',
                 'rgba(243, 156, 18, 1)'
@@ -119,12 +126,13 @@ export class AllflashComponent implements OnInit, AfterViewInit {
       let myChart = new Chart(this.ctx, {
         type: 'pie',
         data: {
-            labels: ["Workload space", "Replica or Parity", "HA and Maintenance", "Filesystem"],
+            labels: ["Workload space", "Checksum", "Replica or Parity", "HA and Maintenance", "Filesystem"],
             datasets: [{
                 label: 'vSAN Space',
-                data: [this.allflash.chartEF, this.allflash.chartRF, this.allflash.chartSlack, this.allflash.chartFsUtil ],
+                data: [this.allflash.chartEF, this.allflash.chartchecksum, this.allflash.chartRF, this.allflash.chartSlack, this.allflash.chartFsUtil ],
                 backgroundColor: [
                     'rgba(46, 204, 113,   1)',
+                    'rgba(46, 134, 193, 1)',
                     'rgba(231, 76, 60, 1)',
                     'rgba(142, 68, 173, 1)',
                     'rgba(243, 156, 18, 1)'

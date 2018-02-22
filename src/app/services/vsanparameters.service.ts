@@ -21,10 +21,12 @@ export class VsanparametersService {
   chartEF = null;
   chartSlack = null;
   chartRF = null;
+  chartchecksum = null;
   values = [];
   newPieChart = null;
   chartFsUtil = null;
   rawCapacity = null;
+  checksum = 5;
 
   
 
