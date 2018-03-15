@@ -24,7 +24,7 @@
                 </div>
 
                 <div>
-                    <label class="subsection"> Disks per Disk Group    : {{ allflash.disksPerDiskGroup }} </label>
+                    <label class="subsection"> Capacity Disks / Disk Group    : {{ allflash.disksPerDiskGroup }} </label>
                     <div class="subsection">
                         <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="1" max="7" step="1" value="0" [(ngModel)]="allflash.disksPerDiskGroup"></mat-slider> </p>
                     </div>
@@ -45,7 +45,7 @@
                 </div>
 
                 <div>
-                    <label class="subsection"> Space Efficiency in Ratio    : {{ allflash.spaceSaveDC }} </label>
+                    <label class="subsection"> Space Efficiency in Ratio    : {{ allflash.spaceSaveDC | number : '1.2-2' }} </label>
                     <div class="subsection">
                         <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=".1" min="1" max="3" step=".1"  [(ngModel)]="allflash.spaceSaveDC"></mat-slider> </p>
                     </div> 
@@ -71,6 +71,8 @@
                                 <option value="2980.23">3.2TB SSD (3 TiB)</option>
                                 <option value="3576.28">3.84TB SSD (3.6 TiB)</option>
                                 <option value="5960.464">6.4TB SScard (5.8 TiB) </option>
+                                <option value="7152.557">7.68TB SSD (7.1 TiB) </option>
+                                <option value="14249.235">15.3TB SSD (14.2 TiB) </option>
                                 
                         </select>
                 </div>  

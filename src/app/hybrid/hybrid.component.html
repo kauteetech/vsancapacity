@@ -24,7 +24,7 @@
                     </div>
     
                     <div>
-                        <label class="subsection"> Disks per Disk Group    : {{ hybrid.disksPerDiskGroup }} </label>
+                        <label class="subsection"> Capacity Disks / Disk Group    : {{ hybrid.disksPerDiskGroup }} </label>
                         <div class="subsection">
                             <p> <mat-slider (change)="usableSpace()" thumb-label='true' tick-interval=1 min="1" max="7" step="1" value="0" [(ngModel)]="hybrid.disksPerDiskGroup"></mat-slider> </p>
                         </div>
