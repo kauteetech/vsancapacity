@@ -75,17 +75,17 @@
 
                                     <label *ngIf ="hybrid.totalNodes >= 2">
                                     <input (change)="usableSpace()" type="radio" [value]="2" name="hybrid.FTTvalue" class="input" [(ngModel)]="hybrid.FTTvalue" checked> 
-                                        FTT1-Two data copies 
+                                        FTT1 – RAID1 Two data copies 
                                     </label> <br>
 
                                     <label *ngIf ="hybrid.totalNodes >= 5">
                                     <input  (change)="usableSpace()" type="radio" value="3" name="hybrid.FTTvalue" class="input" [(ngModel)]="hybrid.FTTvalue"> 
-                                        FTT2-Three data copies
+                                        FTT2 – RAID1 Three data copies
                                     </label> <br>
 
                                     <label *ngIf ="hybrid.totalNodes >= 7">
                                     <input (change)="usableSpace()" type="radio" value="4" name="FTT3" class="input" [(ngModel)]="hybrid.FTTvalue"> 
-                                        FTT3-Four data copies
+                                        FTT3 – RAID1 Four data copies
                                     </label> <br>
 
                             </form>
